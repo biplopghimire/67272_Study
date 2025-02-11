@@ -55,7 +55,10 @@ Chore.past.joins(:child).where(children: { first_name: 'Alice' })
 ```
 **SQL Answer:**  
 ```sql
-
+SELECT "chores".*
+  FROM "chores"
+ INNER JOIN "children" on "chidren"."id" = "chores"."child_id"
+ WHERE due_on < '2024-02-11' AND "children"."first_name" = ? [["first_name", "Alice"]]
 ```
 
 ---
