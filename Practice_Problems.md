@@ -22,13 +22,15 @@ SELECT *
 
 ---
 
-## **1. Find all upcoming chores assigned to a child with ID = X**  
+## **1. Find all upcoming chores assigned to a child with ID = 1**  
 ```ruby
-Chore.upcoming.where(child_id: X)
+Chore.upcoming.where(child_id: 1)
 ```
 **SQL Answer:**  
 ```sql
-
+SELECT *
+  FROM chores
+ WHERE (due_on >= '2025-02-11') AND (child_id = ?) [["child_id", 1]]
 ```
 
 ---
@@ -39,7 +41,10 @@ Task.active.alphabetical
 ```
 **SQL Answer:**  
 ```sql
-
+SELECT *
+  FROM tasks
+ WHERE active = ?
+ ORDER BY last_name, first_name [["active", 1]]
 ```
 
 ---
