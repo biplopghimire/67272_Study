@@ -10,6 +10,7 @@ Task.alphabetical.joins(:chores).merge(Chore.pending)
 ```
 **SQL Answer:**
 ```sql
+SKIP FOR NOW!
 
 ```
 
@@ -21,7 +22,14 @@ Child.last.chores.done
 ```
 **SQL Answer:**
 ```sql
+SELECT *
+  FROM children
+ ORDER BY id DESC
+ LIMIT ? [["LIMIT", 1]]
 
+SELECT *
+  FROM chores
+ WHERE child_id = ? and completed = ? [["child_id", x], ["completed", true]]
 ```
 
 ---
